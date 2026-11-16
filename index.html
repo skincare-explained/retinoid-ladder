@@ -9,338 +9,374 @@
 <meta property="og:description" content="Retinol or retinal? A 3-stage guide with product picks, a week-by-week routine chart and skin-type tips.">
 <meta property="og:type" content="article">
 <meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=IBM+Plex+Mono:wght@500;600&family=Source+Sans+3:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <style>
-  /* Layout: one reading column on a paper desk, a stage strip that jumps to three stage cards, then routine + skin-type reference. */
+  /* iOS inset-grouped layout: large title, segmented control for the 3 stages, grouped lists. */
   :root {
-    --desk: #ece7dc;
-    --paper: #faf7f0;
-    --ink: #23211d;
-    --muted: #6b655a;
-    --line: #d9d1c1;
-    --navy: #2f3e5c;
-    --oxblood: #9e3b33;
-    --retinol: #e6b496;
-    --retinol-soft: #f3dccb;
+    --bg: #f2f2f7;
+    --cell: #ffffff;
+    --label: #000000;
+    --label2: rgba(60, 60, 67, 0.6);
+    --label3: rgba(60, 60, 67, 0.3);
+    --sep: rgba(60, 60, 67, 0.29);
+    --fill: rgba(120, 120, 128, 0.12);
+    --press: #e5e5ea;
+    --tint: #007aff;
+    --tint-fill: rgba(0, 122, 255, 0.12);
+    --red: #ff3b30;
+    --bar: rgba(242, 242, 247, 0.8);
+    --thumb: #ffffff;
+    --retinol-1: #f3dccb;
+    --retinol-2: #e6b496;
     --retinal: #e2b53e;
-    --chip: #efe7d6;
-    --display: "Playfair Display", Georgia, "Times New Roman", serif;
-    --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
-    --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+    --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI", system-ui, sans-serif;
+    color-scheme: light;
   }
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --desk: #1b1a18; --paper: #252320; --ink: #eee8dc; --muted: #a9a294; --line: #3a3732;
-      --navy: #9fb2d6; --oxblood: #e08a7f; --retinol: #d9a688; --retinol-soft: #4a3a30;
-      --retinal: #e8bf52; --chip: #2f2c27; color-scheme: dark;
+    :root {
+      --bg: #000000; --cell: #1c1c1e; --label: #ffffff; --label2: rgba(235, 235, 245, 0.6);
+      --label3: rgba(235, 235, 245, 0.3); --sep: rgba(84, 84, 88, 0.65); --fill: rgba(118, 118, 128, 0.24);
+      --press: #2c2c2e; --tint: #0a84ff; --tint-fill: rgba(10, 132, 255, 0.18); --red: #ff453a;
+      --bar: rgba(22, 22, 24, 0.78); --thumb: #636366; --retinol-1: #e9cdb9; --retinol-2: #d9a688;
+      --retinal: #e8bf52; color-scheme: dark;
     }
   }
-  :root[data-theme="dark"] {
-    --desk: #1b1a18; --paper: #252320; --ink: #eee8dc; --muted: #a9a294; --line: #3a3732;
-    --navy: #9fb2d6; --oxblood: #e08a7f; --retinol: #d9a688; --retinol-soft: #4a3a30;
-    --retinal: #e8bf52; --chip: #2f2c27; color-scheme: dark;
-  }
 
-  * { box-sizing: border-box; }
-  body {
-    background: var(--desk);
-    background-image: radial-gradient(circle, color-mix(in srgb, var(--ink) 14%, transparent) 1.2px, transparent 1.6px);
-    background-size: 26px 26px;
-    color: var(--ink);
-    font-family: var(--body);
-    font-size: 17px;
-    line-height: 1.6;
-  }
-  .wrap {
-    max-width: 760px;
-    margin: 0 auto;
-    padding-block: 40px 64px;
-    padding-left: max(16px, env(safe-area-inset-left, 0px));
-    padding-right: max(16px, env(safe-area-inset-right, 0px));
-    display: grid;
-    gap: 28px;
-  }
-  h1, h2, h3 { font-family: var(--display); text-wrap: balance; line-height: 1.15; margin: 0; }
-  h1 { font-size: clamp(2.3rem, 7vw, 3.4rem); letter-spacing: -0.01em; }
-  h2 { font-size: clamp(1.6rem, 4.6vw, 2.1rem); }
-  h3 { font-size: 1.2rem; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--label); font-family: var(--font); font-size: 17px; line-height: 1.35; letter-spacing: -0.01em; }
+  a { color: var(--tint); text-decoration: none; }
   p { margin: 0; }
-  a { color: var(--navy); }
-  a:focus-visible, .shop:focus-visible, .rung:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
-  .eyebrow { font-family: var(--mono); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
-  .sheet { background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: clamp(20px, 4vw, 32px); display: grid; gap: 16px; box-shadow: 0 1px 2px rgb(40 30 20 / 0.12), 0 14px 30px rgb(40 30 20 / 0.08); }
+  :focus-visible { outline: 3px solid var(--tint); outline-offset: 2px; border-radius: 8px; }
 
-  /* hero */
-  .hero { display: grid; gap: 14px; }
-  .lede { font-size: 1.12rem; max-width: 60ch; }
-  .steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-  .step { border: 1px dashed var(--line); border-radius: 4px; padding: 12px 14px; display: grid; gap: 4px; }
-  .step b { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; }
-  .path { font-family: var(--mono); font-size: 0.86rem; color: var(--muted); overflow-wrap: anywhere; }
-
-  /* ladder strip */
-  .ladder { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
-  .rung { text-decoration: none; color: var(--ink); background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: 14px 12px 12px; display: grid; gap: 8px; justify-items: center; text-align: center; }
-  .rung:hover { border-color: var(--navy); }
-  .rung svg { width: 40px; height: 74px; }
-  .rung .n { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.08em; color: var(--muted); }
-  .rung .t { font-family: var(--display); font-weight: 700; font-size: 1.02rem; line-height: 1.2; }
-  .rung .s { font-family: var(--mono); font-size: 0.74rem; }
-
-  /* stage cards */
-  .stage { scroll-margin-top: 16px; }
-  .stage-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; }
-  .strength { font-family: var(--mono); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; padding: 3px 10px; border-radius: 3px; background: var(--chip); white-space: nowrap; }
-  .facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 20px; }
-  .facts div { display: grid; gap: 2px; min-width: 0; }
-  .facts dt { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
-  .facts dd { margin: 0; }
-  dl { margin: 0; }
-  .products { display: grid; gap: 12px; }
-  .product { border: 1px solid var(--line); border-radius: 4px; padding: 14px 16px; display: grid; grid-template-columns: 14px minmax(0, 1fr) auto; gap: 6px 14px; align-items: start; }
-  .swatch { width: 14px; height: 44px; border-radius: 7px; margin-top: 4px; }
-  .product .name { font-weight: 600; line-height: 1.35; }
-  .product .brand { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
-  .product .why { color: var(--muted); font-size: 0.95rem; }
-  .pick { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--oxblood); border: 1.5px solid var(--oxblood); border-radius: 3px; padding: 0 6px; margin-left: 6px; white-space: nowrap; }
-  .shop { align-self: center; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; color: var(--paper); background: var(--ink); padding: 9px 12px; border-radius: 3px; white-space: nowrap; }
-  .shop:hover { background: var(--navy); }
-  .next { border-left: 3px solid var(--retinal); padding: 4px 0 4px 14px; }
-  .next b { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; }
-
-  /* routine chart */
-  .table-scroll { overflow-x: auto; }
-  table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: 0.95rem; }
-  th, td { text-align: left; padding: 10px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
-  th { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
-  .week { display: flex; gap: 4px; }
-  .week i { width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid var(--muted); display: block; }
-  .week i.on { background: var(--retinol); border-color: var(--retinol); }
-  .order { display: grid; gap: 10px; padding: 0; margin: 0; list-style: none; counter-reset: s; }
-  .order li { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 10px; counter-increment: s; }
-  .order li::before { content: counter(s); font-family: var(--mono); font-weight: 600; width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid var(--navy); color: var(--navy); display: grid; place-items: center; font-size: 0.8rem; }
-  .ampm { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-  .ampm > div { display: grid; gap: 10px; align-content: start; min-width: 0; }
-
-  /* skin types */
-  .types { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-  .type { border-top: 2px solid var(--ink); padding-top: 10px; display: grid; gap: 6px; min-width: 0; }
-  .type p { font-size: 0.97rem; }
-
-  .warn { border: 1.5px solid var(--oxblood); }
-  .warn h2 { color: var(--oxblood); }
-  .warn ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
-  .fine { font-size: 0.86rem; color: var(--muted); display: grid; gap: 6px; }
-
-  @media (max-width: 600px) {
-    .steps, .facts, .ampm, .types { grid-template-columns: 1fr; }
-    .ladder { gap: 6px; }
-    .rung { padding: 10px 6px; }
-    .product { grid-template-columns: 10px minmax(0, 1fr); }
-    .swatch { width: 10px; }
-    .shop { grid-column: 2; justify-self: start; }
+  /* nav bar: small title fades in once the large title scrolls away */
+  .navbar {
+    position: sticky; top: 0; z-index: 20;
+    padding: calc(env(safe-area-inset-top, 0px) + 10px) max(16px, env(safe-area-inset-right, 0px)) 10px max(16px, env(safe-area-inset-left, 0px));
+    text-align: center; font-weight: 600; font-size: 17px;
+    background: transparent; border-bottom: 0.5px solid transparent;
+    transition: background-color .2s, border-color .2s;
   }
-  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
-</style>
+  .navbar span { opacity: 0; transition: opacity .2s; }
+  .navbar.scrolled { background: var(--bar); border-bottom-color: var(--sep); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); }
+  .navbar.scrolled span { opacity: 1; }
 
+  .page { max-width: 680px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 48px); }
+  .large { padding: 0 4px 6px; }
+  .large h1 { margin: 0; font-size: 34px; line-height: 41px; font-weight: 700; letter-spacing: 0.01em; }
+  .large p { margin-top: 6px; color: var(--label2); font-size: 15px; line-height: 20px; }
+
+  /* grouped sections */
+  .section { margin-top: 28px; }
+  .header { padding: 0 16px 7px; font-size: 13px; line-height: 18px; text-transform: uppercase; color: var(--label2); letter-spacing: 0; }
+  .footer { padding: 7px 16px 0; font-size: 13px; line-height: 18px; color: var(--label2); }
+  .group { background: var(--cell); border-radius: 12px; overflow: hidden; }
+  .row { position: relative; display: flex; align-items: center; gap: 12px; padding: 11px 16px; min-height: 44px; }
+  .row + .row::before { content: ""; position: absolute; top: 0; right: 0; left: var(--inset, 16px); border-top: 0.5px solid var(--sep); }
+  .row .body { flex: 1; min-width: 0; }
+  .row .title { font-size: 17px; line-height: 22px; }
+  .row .sub { font-size: 15px; line-height: 20px; color: var(--label2); margin-top: 2px; }
+  .row .value { color: var(--label2); font-size: 17px; white-space: nowrap; }
+  .caption { font-size: 12px; line-height: 16px; color: var(--label2); text-transform: uppercase; letter-spacing: 0.02em; }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 13px; letter-spacing: 0; }
+
+  /* app-icon style tiles */
+  .tile { flex: none; width: 52px; height: 52px; border-radius: 12px; display: grid; place-items: center; background: var(--fill); }
+  .tile.sm { width: 30px; height: 30px; border-radius: 7px; }
+  .tile svg { display: block; }
+
+  /* segmented control */
+  .seg { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); background: var(--fill); border-radius: 9px; padding: 2px; }
+  .seg button { position: relative; z-index: 1; appearance: none; border: 0; background: none; font: inherit; font-size: 13px; line-height: 18px; font-weight: 500; color: var(--label); padding: 6px 4px; border-radius: 7px; cursor: pointer; }
+  .seg button[aria-selected="true"] { font-weight: 600; }
+  .seg .thumb { position: absolute; z-index: 0; top: 2px; bottom: 2px; left: 2px; width: calc((100% - 4px) / 3); border-radius: 7px; background: var(--thumb); box-shadow: 0 3px 8px rgba(0,0,0,.12), 0 3px 1px rgba(0,0,0,.04); transition: transform .28s cubic-bezier(.3,.7,.2,1); }
+
+  /* stage hero card */
+  .stage-hero { display: flex; gap: 14px; align-items: center; padding: 16px; }
+  .stage-hero .tile { width: 64px; height: 64px; border-radius: 14px; }
+  .stage-hero h2 { margin: 0; font-size: 22px; line-height: 28px; font-weight: 700; }
+  .chip { display: inline-block; margin-top: 4px; font-size: 13px; line-height: 18px; color: var(--label2); }
+
+  /* product rows */
+  .product { --inset: 80px; align-items: flex-start; padding-top: 12px; padding-bottom: 12px; }
+  .product .brand { font-size: 12px; line-height: 16px; color: var(--label2); text-transform: uppercase; letter-spacing: 0.02em; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+  .product .name { font-size: 16px; line-height: 21px; font-weight: 600; margin-top: 1px; }
+  .product .sub { font-size: 14px; line-height: 19px; }
+  .badge { color: var(--tint); font-weight: 600; text-transform: none; letter-spacing: 0; font-size: 12px; }
+  .get { flex: none; align-self: center; display: inline-block; min-width: 68px; text-align: center; padding: 6px 14px; border-radius: 999px; background: var(--tint-fill); color: var(--tint); font-size: 15px; font-weight: 700; letter-spacing: 0; }
+  .get:active { opacity: .55; }
+
+  /* routine */
+  .dots { display: flex; gap: 5px; }
+  .dots i { width: 13px; height: 13px; border-radius: 50%; background: var(--fill); display: block; }
+  .dots i.on { background: var(--tint); }
+  .num { flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--tint); color: #fff; font-size: 14px; font-weight: 600; display: grid; place-items: center; }
+  .steps .row { --inset: 54px; }
+
+  /* disclosure rows */
+  details { position: relative; }
+  details + details::before { content: ""; position: absolute; top: 0; right: 0; left: 54px; border-top: 0.5px solid var(--sep); }
+  summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 12px; padding: 11px 16px; min-height: 44px; }
+  summary::-webkit-details-marker { display: none; }
+  summary:active { background: var(--press); }
+  summary .title { flex: 1; }
+  .chev { width: 8px; height: 14px; color: var(--label3); transition: transform .2s; flex: none; }
+  details[open] .chev { transform: rotate(90deg); }
+  details .more { padding: 0 16px 14px 58px; color: var(--label2); font-size: 15px; line-height: 21px; }
+
+  .warn-title { color: var(--red); font-weight: 600; }
+  .legal { margin-top: 28px; padding: 0 16px; font-size: 12px; line-height: 17px; color: var(--label2); }
+
+  [data-stage-panel][hidden] { display: none !important; }
+  @media (prefers-reduced-motion: reduce) { .seg .thumb, .navbar, .navbar span, .chev { transition: none; } }
+</style>
 </head>
 <body>
-<main class="wrap">
-  <header class="hero">
-    <span class="eyebrow">Retinal vs retinol · the guide from the reel</span>
+<header class="navbar" id="navbar"><span>Retinoid Ladder</span></header>
+
+<main class="page">
+  <div class="large" id="large-title">
     <h1>The Retinoid Ladder</h1>
-    <p class="lede">Your skin uses neither retinol nor retinal directly. It turns both into retinoic acid first. Retinol takes two steps to get there, and retinal takes one. That makes retinal faster and stronger, and also more likely to irritate. So the right product depends on where your skin is right now.</p>
-    <div class="steps" aria-label="How each one converts">
-      <div class="step"><b>Retinol</b><span class="path">retinol → retinal → retinoic acid</span><span>2 conversions. Gentler and slower.</span></div>
-      <div class="step"><b>Retinal</b><span class="path">retinal → retinoic acid</span><span>1 conversion. Faster, and more likely to sting.</span></div>
-    </div>
-  </header>
+    <p>Retinal vs retinol, from the reel. Find your stage, then the products and routine for it.</p>
+  </div>
 
-  <nav class="ladder" aria-label="Jump to your stage">
-    <a class="rung" href="#stage-1">
-      <svg viewBox="0 0 40 74" aria-hidden="true"><rect x="6" y="2" width="28" height="12" rx="3" fill="#5b6670"/><path d="M9 14 V62 a11 11 0 0 0 22 0 V14 Z" fill="none" stroke="currentColor" stroke-opacity=".35" stroke-width="2"/><path d="M10 44 V62 a10 10 0 0 0 20 0 V44 Z" fill="var(--retinol-soft)"/></svg>
-      <span class="n">STAGE 1</span><span class="t">New to retinol</span><span class="s">low retinol</span>
-    </a>
-    <a class="rung" href="#stage-2">
-      <svg viewBox="0 0 40 74" aria-hidden="true"><rect x="6" y="2" width="28" height="12" rx="3" fill="#5b6670"/><path d="M9 14 V62 a11 11 0 0 0 22 0 V14 Z" fill="none" stroke="currentColor" stroke-opacity=".35" stroke-width="2"/><path d="M10 34 V62 a10 10 0 0 0 20 0 V34 Z" fill="var(--retinol)"/></svg>
-      <span class="n">STAGE 2</span><span class="t">Adjusting</span><span class="s">mid retinol</span>
-    </a>
-    <a class="rung" href="#stage-3">
-      <svg viewBox="0 0 40 74" aria-hidden="true"><rect x="6" y="2" width="28" height="12" rx="3" fill="#a8862f"/><path d="M9 14 V62 a11 11 0 0 0 22 0 V14 Z" fill="none" stroke="currentColor" stroke-opacity=".35" stroke-width="2"/><path d="M10 24 V62 a10 10 0 0 0 20 0 V24 Z" fill="var(--retinal)"/></svg>
-      <span class="n">STAGE 3</span><span class="t">Retinal-ready</span><span class="s">retinal</span>
-    </a>
-  </nav>
-
-  <!-- STAGE 1 -->
-  <section class="sheet stage" id="stage-1" aria-labelledby="h-s1">
-    <div class="stage-head">
-      <h2 id="h-s1">Stage 1 · New to retinol</h2>
-      <span class="strength">about 0.01 – 0.2% retinol</span>
-    </div>
-    <dl class="facts">
-      <div><dt>This is you if</dt><dd>You have never used a retinoid, or you stopped for months, or your skin stings easily.</dd></div>
-      <div><dt>How to use</dt><dd>Night only. A pea-sized amount on dry skin, 2 nights a week. Build up slowly with the routine chart below.</dd></div>
-    </dl>
-    <div class="products">
-      <article class="product">
-        <span class="swatch" style="background: var(--retinol-soft)"></span>
-        <div>
-          <span class="brand">haruharu wonder</span><span class="pick">Main pick</span>
-          <p class="name">Black Rice Night Knight Retinol Serum</p>
-          <p class="why">0.08% encapsulated retinol with 1% bakuchiol. A low, slow-release dose made for first-timers.</p>
-        </div>
-        <a class="shop" href="https://www.amazon.com/dp/B0DR1K8FF5" target="_blank" rel="noopener">Shop on Amazon</a>
-      </article>
-      <article class="product">
-        <span class="swatch" style="background: var(--retinol-soft)"></span>
-        <div>
-          <span class="brand">The Ordinary</span>
-          <p class="name">Retinol 0.2% in Squalane</p>
-          <p class="why">The first step of a simple 0.2 → 0.5 → 1% ladder, in a soothing squalane base.</p>
-        </div>
-        <a class="shop" href="https://www.amazon.com/dp/B077DWJ4H5" target="_blank" rel="noopener">Shop on Amazon</a>
-      </article>
-    </div>
-    <p class="next"><b>Move up when</b> you have used it most nights for 6 to 8 weeks with no redness, flaking or stinging.</p>
-  </section>
-
-  <!-- STAGE 2 -->
-  <section class="sheet stage" id="stage-2" aria-labelledby="h-s2">
-    <div class="stage-head">
-      <h2 id="h-s2">Stage 2 · Adjusting</h2>
-      <span class="strength">about 0.3 – 0.5% retinol, or a starter retinal</span>
-    </div>
-    <dl class="facts">
-      <div><dt>This is you if</dt><dd>A low-dose retinol feels easy every night now, and you want more visible results.</dd></div>
-      <div><dt>How to use</dt><dd>Change one thing at a time. When you step up the strength, go back to every other night for 2 weeks, then nightly again.</dd></div>
-    </dl>
-    <div class="products">
-      <article class="product">
-        <span class="swatch" style="background: var(--retinol)"></span>
-        <div>
-          <span class="brand">The Ordinary</span>
-          <p class="name">Retinol 0.5% in Squalane</p>
-          <p class="why">The middle step of the same ladder. A clear next strength after 0.2%.</p>
-        </div>
-        <a class="shop" href="https://www.amazon.com/dp/B0789NX2ZV" target="_blank" rel="noopener">Shop on Amazon</a>
-      </article>
-      <article class="product">
-        <span class="swatch" style="background: color-mix(in srgb, var(--retinol) 50%, var(--retinal))"></span>
-        <div>
-          <span class="brand">Medik8</span>
-          <p class="name">Crystal Retinal 3</p>
-          <p class="why">0.03% retinal. A gentle first try of retinal before the stronger formulas.</p>
-        </div>
-        <a class="shop" href="https://www.amazon.com/dp/B0BHX7NYJG" target="_blank" rel="noopener">Shop on Amazon</a>
-      </article>
-    </div>
-    <p class="next"><b>Move up when</b> nightly use has felt comfortable for another 6 to 8 weeks.</p>
-  </section>
-
-  <!-- STAGE 3 -->
-  <section class="sheet stage" id="stage-3" aria-labelledby="h-s3">
-    <div class="stage-head">
-      <h2 id="h-s3">Stage 3 · Retinal-ready</h2>
-      <span class="strength">about 0.05 – 0.1% retinal</span>
-    </div>
-    <dl class="facts">
-      <div><dt>This is you if</dt><dd>Your skin handles a mid-strength retinol every night, and you want faster, firmer results.</dd></div>
-      <div><dt>How to use</dt><dd>Retinal is stronger, so restart at every other night for 2 weeks. If it stings, go back a step for a while.</dd></div>
-    </dl>
-    <div class="products">
-      <article class="product">
-        <span class="swatch" style="background: var(--retinal)"></span>
-        <div>
-          <span class="brand">haruharu wonder</span><span class="pick">Main pick</span>
-          <p class="name">Rose PDRN Firming Serum with Retinal 0.1%</p>
-          <p class="why">0.1% retinal for firmness and fine lines, for skin that is already used to retinol.</p>
-        </div>
-        <a class="shop" href="https://www.amazon.com/dp/B0G4ZQKHM3" target="_blank" rel="noopener">Shop on Amazon</a>
-      </article>
-      <article class="product">
-        <span class="swatch" style="background: var(--retinal)"></span>
-        <div>
-          <span class="brand">Medik8</span>
-          <p class="name">Crystal Retinal 6</p>
-          <p class="why">0.06% retinal. The next step after Crystal Retinal 3.</p>
-        </div>
-        <a class="shop" href="https://www.amazon.com/dp/B0BHX6BHB3" target="_blank" rel="noopener">Shop on Amazon</a>
-      </article>
-      <article class="product">
-        <span class="swatch" style="background: var(--retinal)"></span>
-        <div>
-          <span class="brand">Medik8</span>
-          <p class="name">Crystal Retinal 10</p>
-          <p class="why">0.1% retinal. For skin that has finished a tube of Crystal Retinal 6 without irritation.</p>
-        </div>
-        <a class="shop" href="https://www.amazon.com/dp/B0BHX3Y6XS" target="_blank" rel="noopener">Shop on Amazon</a>
-      </article>
-    </div>
-    <p class="next"><b>Beyond this</b> 0.1% retinal is the top of this ladder for most people. Anything stronger, like tretinoin, is a prescription. Talk to a dermatologist.</p>
-  </section>
-
-  <!-- ROUTINE CHART -->
-  <section class="sheet" id="routine" aria-labelledby="h-routine">
-    <span class="eyebrow">Routine chart</span>
-    <h2 id="h-routine">How often, week by week</h2>
-    <p>Use this every time you start a new product or step up a strength.</p>
-    <div class="table-scroll">
-      <table>
-        <thead><tr><th>Weeks</th><th>Nights per week</th><th>Example</th></tr></thead>
-        <tbody>
-          <tr><td>1 – 2</td><td><div class="week" aria-label="2 of 7 nights"><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i></div></td><td>Mon and Thu</td></tr>
-          <tr><td>3 – 4</td><td><div class="week" aria-label="3 to 4 of 7 nights"><i class="on"></i><i></i><i class="on"></i><i></i><i class="on"></i><i></i><i class="on"></i></div></td><td>Every other night</td></tr>
-          <tr><td>5 and on</td><td><div class="week" aria-label="7 of 7 nights"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></td><td>Nightly, if your skin is comfortable</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="ampm">
-      <div>
-        <h3>Night</h3>
-        <ol class="order">
-          <li>Cleanse gently and pat skin fully dry.</li>
-          <li>Apply a pea-sized amount of retinoid to the whole face. Keep it away from the eye corners, nostrils and lips.</li>
-          <li>Follow with moisturizer.</li>
-        </ol>
+  <!-- the science, in two rows -->
+  <section class="section" aria-labelledby="h-why">
+    <div class="header" id="h-why">Why it matters</div>
+    <div class="group">
+      <div class="row" style="--inset: 58px">
+        <span class="tile sm" style="background: var(--retinol-2)"><svg width="14" height="20" viewBox="0 0 14 20" aria-hidden="true"><rect x="2" y="0" width="10" height="4" rx="1.5" fill="#5b6670"/><path d="M3 4 V15 a4 4 0 0 0 8 0 V4" fill="#fff" fill-opacity=".85"/></svg></span>
+        <div class="body"><div class="title">Retinol</div><div class="sub mono">retinol → retinal → retinoic acid</div></div>
+        <span class="value">2 steps</span>
       </div>
-      <div>
-        <h3>Morning</h3>
-        <ol class="order">
-          <li>Rinse or cleanse gently.</li>
-          <li>Moisturize.</li>
-          <li>Apply broad-spectrum SPF 30 or higher every day, even when it's cloudy.</li>
-        </ol>
+      <div class="row" style="--inset: 58px">
+        <span class="tile sm" style="background: var(--retinal)"><svg width="14" height="20" viewBox="0 0 14 20" aria-hidden="true"><rect x="2" y="0" width="10" height="4" rx="1.5" fill="#a8862f"/><path d="M3 4 V15 a4 4 0 0 0 8 0 V4" fill="#fff" fill-opacity=".85"/></svg></span>
+        <div class="body"><div class="title">Retinal</div><div class="sub mono">retinal → retinoic acid</div></div>
+        <span class="value">1 step</span>
+      </div>
+    </div>
+    <p class="footer">Your skin can only use retinoic acid. One fewer step makes retinal faster and stronger, and more likely to cause redness, flaking or stinging.</p>
+  </section>
+
+  <!-- stages -->
+  <section class="section" aria-labelledby="h-stage">
+    <div class="header" id="h-stage">Where is your skin right now?</div>
+    <div class="seg" role="tablist" aria-label="Skin stage">
+      <span class="thumb" id="seg-thumb"></span>
+      <button role="tab" id="tab-1" aria-controls="stage-1" aria-selected="true" data-stage="1">New</button>
+      <button role="tab" id="tab-2" aria-controls="stage-2" aria-selected="false" data-stage="2">Adjusting</button>
+      <button role="tab" id="tab-3" aria-controls="stage-3" aria-selected="false" data-stage="3">Retinal-ready</button>
+    </div>
+
+    <!-- STAGE 1 -->
+    <div id="stage-1" role="tabpanel" aria-labelledby="tab-1" data-stage-panel="1">
+      <div class="section" style="margin-top: 16px">
+        <div class="group">
+          <div class="stage-hero">
+            <span class="tile" style="background: var(--retinol-1)"><svg width="26" height="40" viewBox="0 0 26 40" aria-hidden="true"><rect x="3" y="0" width="20" height="8" rx="3" fill="#5b6670"/><path d="M5 8 V31 a8 8 0 0 0 16 0 V8 Z" fill="#fff" fill-opacity=".9"/><path d="M6 22 V31 a7 7 0 0 0 14 0 V22 Z" fill="#e6b496" fill-opacity=".6"/></svg></span>
+            <div><h2>Stage 1 · New to retinol</h2><span class="chip">About 0.01–0.2% retinol</span></div>
+          </div>
+          <div class="row"><div class="body"><div class="caption">This is you if</div><div class="title" style="font-size:16px; margin-top:2px">You have never used a retinoid, stopped for months, or your skin stings easily.</div></div></div>
+          <div class="row"><div class="body"><div class="caption">How to use</div><div class="title" style="font-size:16px; margin-top:2px">Night only. A pea-sized amount on dry skin, 2 nights a week to start.</div></div></div>
+        </div>
+      </div>
+      <div class="section" style="margin-top: 22px">
+        <div class="header">Products</div>
+        <div class="group">
+          <div class="row product">
+            <span class="tile" style="background: var(--retinol-1)"><svg width="20" height="34" viewBox="0 0 20 34" aria-hidden="true"><rect x="5" y="0" width="10" height="9" rx="4" fill="#cfc7b6"/><rect x="2" y="7" width="16" height="6" rx="2" fill="#e4ddcd"/><rect x="1" y="12" width="18" height="22" rx="5" fill="#e6b496"/><rect x="4" y="19" width="12" height="8" rx="1.5" fill="#fff" fill-opacity=".85"/></svg></span>
+            <div class="body"><div class="brand">haruharu wonder <span class="badge">Main pick</span></div><div class="name">Black Rice Night Knight Retinol Serum</div><div class="sub">0.08% encapsulated retinol with 1% bakuchiol. A low, slow-release dose for first-timers.</div></div>
+            <a class="get" href="https://www.amazon.com/dp/B0DR1K8FF5" target="_blank" rel="noopener" aria-label="View Night Knight Retinol Serum on Amazon">View</a>
+          </div>
+          <div class="row product">
+            <span class="tile" style="background: var(--retinol-1)"><svg width="20" height="34" viewBox="0 0 20 34" aria-hidden="true"><rect x="7" y="0" width="6" height="8" rx="3" fill="#2b2b2b"/><rect x="5" y="7" width="10" height="5" rx="1" fill="#2b2b2b"/><rect x="2" y="11" width="16" height="23" rx="3" fill="#fff" fill-opacity=".9"/><rect x="5" y="18" width="10" height="8" rx="1" fill="#e6b496" fill-opacity=".6"/></svg></span>
+            <div class="body"><div class="brand">The Ordinary</div><div class="name">Retinol 0.2% in Squalane</div><div class="sub">The first step of a simple 0.2 → 0.5 → 1% ladder, in a soothing squalane base.</div></div>
+            <a class="get" href="https://www.amazon.com/dp/B077DWJ4H5" target="_blank" rel="noopener" aria-label="View The Ordinary Retinol 0.2% on Amazon">View</a>
+          </div>
+          <div class="row product">
+            <span class="tile" style="background: var(--retinol-1)"><svg width="20" height="34" viewBox="0 0 20 34" aria-hidden="true"><rect x="6" y="0" width="8" height="8" rx="2" fill="#4a7bb7"/><rect x="2" y="8" width="16" height="26" rx="4" fill="#fff" fill-opacity=".92"/><rect x="2" y="20" width="16" height="3" fill="#4a7bb7" fill-opacity=".8"/></svg></span>
+            <div class="body"><div class="brand">CeraVe</div><div class="name">Resurfacing Retinol Serum</div><div class="sub">Encapsulated retinol with ceramides and niacinamide. Gentle, and good for post-acne marks.</div></div>
+            <a class="get" href="https://www.amazon.com/dp/B07VWSN95S" target="_blank" rel="noopener" aria-label="View CeraVe Resurfacing Retinol Serum on Amazon">View</a>
+          </div>
+        </div>
+        <p class="footer"><b>Move up when</b> you have used it most nights for 6–8 weeks with no redness, flaking or stinging.</p>
+      </div>
+    </div>
+
+    <!-- STAGE 2 -->
+    <div id="stage-2" role="tabpanel" aria-labelledby="tab-2" data-stage-panel="2">
+      <div class="section" style="margin-top: 16px">
+        <div class="group">
+          <div class="stage-hero">
+            <span class="tile" style="background: var(--retinol-2)"><svg width="26" height="40" viewBox="0 0 26 40" aria-hidden="true"><rect x="3" y="0" width="20" height="8" rx="3" fill="#5b6670"/><path d="M5 8 V31 a8 8 0 0 0 16 0 V8 Z" fill="#fff" fill-opacity=".9"/><path d="M6 16 V31 a7 7 0 0 0 14 0 V16 Z" fill="#d99c78" fill-opacity=".75"/></svg></span>
+            <div><h2>Stage 2 · Adjusting</h2><span class="chip">About 0.3–0.5% retinol, or a starter retinal</span></div>
+          </div>
+          <div class="row"><div class="body"><div class="caption">This is you if</div><div class="title" style="font-size:16px; margin-top:2px">A low-dose retinol feels easy every night now, and you want more visible results.</div></div></div>
+          <div class="row"><div class="body"><div class="caption">How to use</div><div class="title" style="font-size:16px; margin-top:2px">Change one thing at a time. After stepping up, use it every other night for 2 weeks, then nightly.</div></div></div>
+        </div>
+      </div>
+      <div class="section" style="margin-top: 22px">
+        <div class="header">Products</div>
+        <div class="group">
+          <div class="row product">
+            <span class="tile" style="background: var(--retinol-2)"><svg width="20" height="34" viewBox="0 0 20 34" aria-hidden="true"><rect x="7" y="0" width="6" height="8" rx="3" fill="#2b2b2b"/><rect x="5" y="7" width="10" height="5" rx="1" fill="#2b2b2b"/><rect x="2" y="11" width="16" height="23" rx="3" fill="#fff" fill-opacity=".9"/><rect x="5" y="18" width="10" height="8" rx="1" fill="#d99c78" fill-opacity=".75"/></svg></span>
+            <div class="body"><div class="brand">The Ordinary</div><div class="name">Retinol 0.5% in Squalane</div><div class="sub">The middle step of the same ladder. A clear next strength after 0.2%.</div></div>
+            <a class="get" href="https://www.amazon.com/dp/B0789NX2ZV" target="_blank" rel="noopener" aria-label="View The Ordinary Retinol 0.5% on Amazon">View</a>
+          </div>
+          <div class="row product">
+            <span class="tile" style="background: var(--retinol-2)"><svg width="20" height="34" viewBox="0 0 20 34" aria-hidden="true"><rect x="5" y="0" width="10" height="8" rx="2" fill="#3d4148"/><rect x="2" y="8" width="16" height="26" rx="3" fill="#fff" fill-opacity=".92"/><rect x="5" y="16" width="10" height="2" rx="1" fill="#3d4148"/><rect x="5" y="21" width="7" height="2" rx="1" fill="#3d4148" fill-opacity=".5"/></svg></span>
+            <div class="body"><div class="brand">Paula's Choice</div><div class="name">CLINICAL 0.3% Retinol + 2% Bakuchiol</div><div class="sub">A mid-strength retinol with bakuchiol, peptides and ceramides for firmness and texture.</div></div>
+            <a class="get" href="https://www.amazon.com/dp/B084GGYHDF" target="_blank" rel="noopener" aria-label="View Paula's Choice 0.3% Retinol on Amazon">View</a>
+          </div>
+          <div class="row product">
+            <span class="tile" style="background: color-mix(in srgb, var(--retinol-2) 50%, var(--retinal))"><svg width="20" height="34" viewBox="0 0 20 34" aria-hidden="true"><rect x="6" y="0" width="8" height="9" rx="3" fill="#f2f2f2"/><rect x="3" y="8" width="14" height="26" rx="4" fill="#fff" fill-opacity=".92"/><circle cx="10" cy="21" r="3.2" fill="#e2b53e"/></svg></span>
+            <div class="body"><div class="brand">Medik8</div><div class="name">Crystal Retinal 3</div><div class="sub">0.03% retinal. A gentle first try of retinal before the stronger formulas.</div></div>
+            <a class="get" href="https://www.amazon.com/dp/B0BHX7NYJG" target="_blank" rel="noopener" aria-label="View Medik8 Crystal Retinal 3 on Amazon">View</a>
+          </div>
+        </div>
+        <p class="footer"><b>Move up when</b> nightly use has felt comfortable for another 6–8 weeks.</p>
+      </div>
+    </div>
+
+    <!-- STAGE 3 -->
+    <div id="stage-3" role="tabpanel" aria-labelledby="tab-3" data-stage-panel="3">
+      <div class="section" style="margin-top: 16px">
+        <div class="group">
+          <div class="stage-hero">
+            <span class="tile" style="background: var(--retinal)"><svg width="26" height="40" viewBox="0 0 26 40" aria-hidden="true"><rect x="3" y="0" width="20" height="8" rx="3" fill="#a8862f"/><path d="M5 8 V31 a8 8 0 0 0 16 0 V8 Z" fill="#fff" fill-opacity=".9"/><path d="M6 12 V31 a7 7 0 0 0 14 0 V12 Z" fill="#e2b53e"/></svg></span>
+            <div><h2>Stage 3 · Retinal-ready</h2><span class="chip">About 0.05–0.1% retinal</span></div>
+          </div>
+          <div class="row"><div class="body"><div class="caption">This is you if</div><div class="title" style="font-size:16px; margin-top:2px">Your skin handles a mid-strength retinol every night, and you want faster, firmer results.</div></div></div>
+          <div class="row"><div class="body"><div class="caption">How to use</div><div class="title" style="font-size:16px; margin-top:2px">Retinal is stronger, so restart at every other night for 2 weeks. If it stings, go back a step for a while.</div></div></div>
+        </div>
+      </div>
+      <div class="section" style="margin-top: 22px">
+        <div class="header">Products</div>
+        <div class="group">
+          <div class="row product">
+            <span class="tile" style="background: var(--retinal)"><svg width="20" height="34" viewBox="0 0 20 34" aria-hidden="true"><rect x="5" y="0" width="10" height="9" rx="4" fill="#cfc7b6"/><rect x="2" y="7" width="16" height="6" rx="2" fill="#e4ddcd"/><rect x="1" y="12" width="18" height="22" rx="5" fill="#e2b53e"/><rect x="4" y="19" width="12" height="8" rx="1.5" fill="#fff" fill-opacity=".85"/></svg></span>
+            <div class="body"><div class="brand">haruharu wonder <span class="badge">Main pick</span></div><div class="name">Rose PDRN Firming Serum with Retinal 0.1%</div><div class="sub">0.1% retinal for firmness and fine lines, for skin that is already used to retinol.</div></div>
+            <a class="get" href="https://www.amazon.com/dp/B0G4ZQKHM3" target="_blank" rel="noopener" aria-label="View Rose PDRN Firming Serum on Amazon">View</a>
+          </div>
+          <div class="row product">
+            <span class="tile" style="background: var(--retinal)"><svg width="20" height="34" viewBox="0 0 20 34" aria-hidden="true"><rect x="6" y="0" width="8" height="9" rx="3" fill="#f2f2f2"/><rect x="3" y="8" width="14" height="26" rx="4" fill="#fff" fill-opacity=".92"/><circle cx="10" cy="21" r="4" fill="#e2b53e"/></svg></span>
+            <div class="body"><div class="brand">Medik8</div><div class="name">Crystal Retinal 6</div><div class="sub">0.06% retinal. The next step after Crystal Retinal 3.</div></div>
+            <a class="get" href="https://www.amazon.com/dp/B0BHX6BHB3" target="_blank" rel="noopener" aria-label="View Medik8 Crystal Retinal 6 on Amazon">View</a>
+          </div>
+          <div class="row product">
+            <span class="tile" style="background: var(--retinal)"><svg width="20" height="34" viewBox="0 0 20 34" aria-hidden="true"><rect x="6" y="0" width="8" height="9" rx="3" fill="#f2f2f2"/><rect x="3" y="8" width="14" height="26" rx="4" fill="#fff" fill-opacity=".92"/><circle cx="10" cy="21" r="5" fill="#c99a25"/></svg></span>
+            <div class="body"><div class="brand">Medik8</div><div class="name">Crystal Retinal 10</div><div class="sub">0.1% retinal. For skin that has finished a tube of Crystal Retinal 6 without irritation.</div></div>
+            <a class="get" href="https://www.amazon.com/dp/B0BHX3Y6XS" target="_blank" rel="noopener" aria-label="View Medik8 Crystal Retinal 10 on Amazon">View</a>
+          </div>
+        </div>
+        <p class="footer"><b>Beyond this</b> 0.1% retinal is the top of this ladder for most people. Anything stronger, like tretinoin, is a prescription. Ask a dermatologist.</p>
       </div>
     </div>
   </section>
 
-  <!-- SKIN TYPE GUIDE -->
-  <section class="sheet" id="skin-types" aria-labelledby="h-types">
-    <span class="eyebrow">Skin type guide</span>
-    <h2 id="h-types">Adjust for your skin</h2>
-    <div class="types">
-      <div class="type"><h3>Dry</h3><p>Try the sandwich method: moisturizer, then retinoid, then moisturizer again. A ceramide cream helps. Stay at Stage 1 a little longer.</p></div>
-      <div class="type"><h3>Sensitive</h3><p>Start with 1 night a week. Patch test behind the ear or along the jaw for 3 nights first. Low-dose encapsulated retinol is the kindest start.</p></div>
-      <div class="type"><h3>Oily or acne-prone</h3><p>You can often move up sooner. Use a light gel moisturizer. Skip AHA or BHA exfoliants on retinoid nights.</p></div>
-      <div class="type"><h3>Combination</h3><p>Use the full amount on oily areas and less on dry cheeks. Add more moisturizer where your skin feels tight.</p></div>
+  <!-- routine chart -->
+  <section class="section" aria-labelledby="h-routine">
+    <div class="header" id="h-routine">Routine chart · nights per week</div>
+    <div class="group">
+      <div class="row"><div class="body"><div class="title">Weeks 1–2</div><div class="sub">Mon and Thu</div></div><div class="dots" aria-label="2 of 7 nights"><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i></div></div>
+      <div class="row"><div class="body"><div class="title">Weeks 3–4</div><div class="sub">Every other night</div></div><div class="dots" aria-label="4 of 7 nights"><i class="on"></i><i></i><i class="on"></i><i></i><i class="on"></i><i></i><i class="on"></i></div></div>
+      <div class="row"><div class="body"><div class="title">Week 5 on</div><div class="sub">Nightly, if your skin is comfortable</div></div><div class="dots" aria-label="7 of 7 nights"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
     </div>
-    <p class="fine">Purging can happen in the first 4 to 6 weeks: small breakouts where you usually get them. If you see burning, swelling, or a rash in new places, stop and step back.</p>
+    <p class="footer">Start this schedule again whenever you begin a new product or step up a strength.</p>
   </section>
 
-  <section class="sheet warn" aria-labelledby="h-warn">
-    <h2 id="h-warn">Skip retinoids or ask a doctor first if</h2>
-    <ul>
-      <li>You are pregnant, breastfeeding, or trying to conceive.</li>
-      <li>You have eczema, rosacea, or a skin condition you're being treated for.</li>
-      <li>You already use a prescription retinoid such as tretinoin or adapalene. Follow your doctor's plan instead.</li>
-    </ul>
+  <section class="section" aria-labelledby="h-night">
+    <div class="header" id="h-night">Night</div>
+    <div class="group steps">
+      <div class="row"><span class="num">1</span><div class="body title">Cleanse gently and pat skin fully dry.</div></div>
+      <div class="row"><span class="num">2</span><div class="body title">A pea-sized amount of retinoid over the whole face. Avoid eye corners, nostrils and lips.</div></div>
+      <div class="row"><span class="num">3</span><div class="body title">Follow with moisturizer.</div></div>
+    </div>
   </section>
 
-  <footer class="fine">
-    <p>This guide is general skincare information, not medical advice. Strengths for other brands come from their product listings and can change, so check the label.</p>
-  </footer>
+  <section class="section" aria-labelledby="h-morning">
+    <div class="header" id="h-morning">Morning</div>
+    <div class="group steps">
+      <div class="row"><span class="num">1</span><div class="body title">Rinse or cleanse gently.</div></div>
+      <div class="row"><span class="num">2</span><div class="body title">Moisturize.</div></div>
+      <div class="row"><span class="num">3</span><div class="body title">Broad-spectrum SPF 30 or higher, every day, even when it's cloudy.</div></div>
+    </div>
+  </section>
+
+  <!-- skin types -->
+  <section class="section" aria-labelledby="h-types">
+    <div class="header" id="h-types">Skin type guide</div>
+    <div class="group">
+      <details><summary><span class="tile sm" style="background:#5ac8fa"><svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true"><path d="M7 1 C4 6 2 8 2 10.5 a5 5 0 0 0 10 0 C12 8 10 6 7 1 Z" fill="#fff"/></svg></span><span class="title">Dry</span><svg class="chev" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1 L7 7 L1 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p class="more">Try the sandwich method: moisturizer, then retinoid, then moisturizer again. A ceramide cream helps. Stay at Stage 1 a little longer.</p></details>
+      <details><summary><span class="tile sm" style="background:#ff9500"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1 L10 6 L15 6.5 L11 10 L12.5 15 L8 12 L3.5 15 L5 10 L1 6.5 L6 6 Z" fill="#fff"/></svg></span><span class="title">Sensitive</span><svg class="chev" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1 L7 7 L1 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p class="more">Start with 1 night a week. Patch test along the jaw for 3 nights first. A low-dose encapsulated retinol is the kindest start.</p></details>
+      <details><summary><span class="tile sm" style="background:#34c759"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="5" cy="6" r="2" fill="#fff"/><circle cx="11" cy="5" r="1.6" fill="#fff"/><circle cx="9" cy="11" r="2.2" fill="#fff"/></svg></span><span class="title">Oily or acne-prone</span><svg class="chev" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1 L7 7 L1 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p class="more">You can often move up sooner. Use a light gel moisturizer, and skip AHA or BHA exfoliants on retinoid nights.</p></details>
+      <details><summary><span class="tile sm" style="background:#af52de"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1 A7 7 0 0 0 8 15 Z" fill="#fff"/><path d="M8 1 A7 7 0 0 1 8 15 Z" fill="#fff" fill-opacity=".45"/></svg></span><span class="title">Combination</span><svg class="chev" viewBox="0 0 8 14" aria-hidden="true"><path d="M1 1 L7 7 L1 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><p class="more">Use the full amount on oily areas and less on dry cheeks. Add more moisturizer where your skin feels tight.</p></details>
+    </div>
+    <p class="footer">Small breakouts in your usual spots during the first 4–6 weeks can be purging. Burning, swelling or a rash in new places means stop and step back.</p>
+  </section>
+
+  <section class="section" aria-labelledby="h-warn">
+    <div class="header" id="h-warn">Before you start</div>
+    <div class="group">
+      <div class="row" style="--inset: 58px"><span class="tile sm" style="background: var(--red)"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5 L15 14 H1 Z" fill="#fff"/><rect x="7.2" y="6" width="1.6" height="4.5" rx=".8" fill="#ff3b30"/><circle cx="8" cy="12" r=".9" fill="#ff3b30"/></svg></span><div class="body"><div class="warn-title">Skip retinoids, or ask a doctor first, if</div></div></div>
+      <div class="row" style="--inset: 58px"><span class="tile sm" style="background: transparent"></span><div class="body title">You are pregnant, breastfeeding, or trying to conceive.</div></div>
+      <div class="row" style="--inset: 58px"><span class="tile sm" style="background: transparent"></span><div class="body title">You have eczema, rosacea, or a skin condition being treated.</div></div>
+      <div class="row" style="--inset: 58px"><span class="tile sm" style="background: transparent"></span><div class="body title">You use a prescription retinoid like tretinoin or adapalene. Follow your doctor's plan.</div></div>
+    </div>
+  </section>
+
+  <p class="legal">General skincare information, not medical advice. Product strengths come from brand listings and can change, so check the label.</p>
 </main>
+
+<script>
+  (function () {
+    // segmented control: one stage visible at a time, deep-linkable as #stage-1..3
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('.seg [role="tab"]'));
+    var panels = Array.prototype.slice.call(document.querySelectorAll('[data-stage-panel]'));
+    var thumb = document.getElementById('seg-thumb');
+    function show(n, focus) {
+      n = String(n);
+      tabs.forEach(function (t) {
+        var on = t.getAttribute('data-stage') === n;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        if (on && focus) t.focus();
+      });
+      panels.forEach(function (p) { p.hidden = p.getAttribute('data-stage-panel') !== n; });
+      thumb.style.transform = 'translateX(' + (Number(n) - 1) * 100 + '%)';
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () {
+        var n = t.getAttribute('data-stage');
+        show(n);
+        if (history.replaceState) history.replaceState(null, '', '#stage-' + n);
+      });
+      t.addEventListener('keydown', function (e) {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        var j = (i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length;
+        show(tabs[j].getAttribute('data-stage'), true);
+      });
+    });
+    function fromHash() {
+      var m = /^#stage-([123])$/.exec(location.hash);
+      show(m ? m[1] : 1);
+    }
+    window.addEventListener('hashchange', fromHash);
+    fromHash();
+
+    // nav bar: small title appears once the large title is scrolled away
+    var bar = document.getElementById('navbar');
+    var large = document.getElementById('large-title');
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) {
+        bar.classList.toggle('scrolled', !es[0].isIntersecting);
+      }, { rootMargin: '-44px 0px 0px 0px' }).observe(large);
+    }
+  })();
+</script>
 </body>
 </html>
